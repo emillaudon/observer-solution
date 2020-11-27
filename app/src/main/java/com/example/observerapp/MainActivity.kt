@@ -39,9 +39,6 @@ class MainActivity : AppCompatActivity() {
         text = findViewById<TextView>(R.id.textview_first5)
 
         button.setOnClickListener { view ->
-            Snackbar.make(view, "1", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-            
             getData()
         }
 
@@ -66,10 +63,8 @@ class MainActivity : AppCompatActivity() {
                             val jsonObject = JSONObject(line)
 
                             if (jsonObject["statusCode"] == 200) {
-                                println(jsonObject)
                                 val quote = jsonObject["quote"] as JSONObject
                                 val quoteText = quote["quoteText"] as String
-                                println(quoteText)
 
                                 quoteTextViewText = quoteText
 
